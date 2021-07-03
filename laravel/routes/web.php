@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/folders/{id}/music', 'MusicController@index')->name('music.index');
