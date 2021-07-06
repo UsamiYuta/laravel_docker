@@ -11,9 +11,9 @@ class Song extends Model
      * 状態定義
      */
     const STATUS = [
-        1 => [ 'label' => '未着手', 'class' => 'label-danger' ],
-        2 => [ 'label' => '着手中', 'class' => 'label-info' ],
-        3 => [ 'label' => '完了', 'class' => '' ],
+        1 => [ 'label' => '　1　', 'class' => 'label-primary' ],
+        2 => [ 'label' => '　2　', 'class' => 'label-primary' ],
+        3 => [ 'label' => '　3　', 'class' => 'label-primary' ],
     ];
 
     /**

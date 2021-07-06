@@ -16,9 +16,12 @@ class CreateSongsTable extends Migration
         Schema::create('songs', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('folder_id')->unsigned();
-            $table->string('title', 100);
-            $table->date('due_date');
+            $table->string('title', 50);
+            $table->string('artist', 50);
             $table->integer('status')->default(1);
+            $table->string('memo', 100)->nullable();
+            $table->string('sound_source', 100)->nullable();
+            $table->date('due_date')->nullable();
             $table->timestamps();
 
             // 外部キーを設定する

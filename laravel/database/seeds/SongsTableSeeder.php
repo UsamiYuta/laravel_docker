@@ -17,6 +17,9 @@ class SongsTableSeeder extends Seeder
             DB::table('songs')->insert([
                 'folder_id' => 1,
                 'title' => "テストソング {$num}",
+                'artist'=> "usami {$num}",
+                'memo' => "test1",
+                'sound_source' => "youtube",
                 'status' => $num,
                 'due_date' => Carbon::now()->addDay($num),
                 'created_at' => Carbon::now(),

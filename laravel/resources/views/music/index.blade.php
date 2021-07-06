@@ -25,11 +25,11 @@
       </div>
       <div class="column col-md-8">
         <div class="panel panel-default">
-          <div class="panel-heading">タスク</div>
+          <div class="panel-heading">見つけた曲</div>
           <div class="panel-body">
             <div class="text-right">
               <a href="{{ route('music.create', ['id' => $current_folder_id]) }}" class="btn btn-default btn-block">
-                タスクを追加する
+                曲を追加する
               </a>
             </div>
           </div>
@@ -37,20 +37,20 @@
             <thead>
             <tr>
               <th>タイトル</th>
-              <th>状態</th>
-              <th>期限</th>
-              <th></th>
+              <th>アーティスト</th>
+              <th>評価</th>
             </tr>
             </thead>
             <tbody>
             @foreach($songs as $song)
               <tr>
                 <td>{{ $song->title }}</td>
+                <td>{{ $song->artist }}</td>
                 <td>
                   <span class="label {{ $song->status_class }}">{{ $song->status_label }}</span>
                 </td>
-                <td>{{ $song->formatted_due_date }}</td>
-                <td><a href="#">編集</a></td>
+                <td><a href="{{ route('music.edit', ['id' => $song->folder_id, 'song_id' => $song->id]) }}">編集</a></td>
+                <td><a href="{{ route('music.delete', ['id' => $song->folder_id, 'song_id' => $song->id]) }}">削除</a></td>
               </tr>
             @endforeach
             </tbody>

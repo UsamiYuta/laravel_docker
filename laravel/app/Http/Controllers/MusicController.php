@@ -6,6 +6,7 @@ use App\Folder;
 use App\Song; 
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateSong;
+use App\Http\Requests\EditSong;
 
 class MusicController extends Controller
 {
@@ -38,12 +39,52 @@ class MusicController extends Controller
 
     $song = new Song();
     $song->title = $request->title;
-    $song->due_date = $request->due_date;
+    $song->artist = $request->artist;
 
     $current_folder->songs()->save($song);
 
     return redirect()->route('music.index', [
         'id' => $current_folder->id,
     ]);
+    }
+    public function showEditForm(int $id, int $song_id)
+    {
+    $song = Song::find($song_id);
+
+    return view('music/edit', [
+        'song' => $song,
+    ]);
+    }
+    public function edit(int $id, int $song_id, EditSong $request)
+    {
+        // 1
+        $song = Song::find($song_id);
+    
+        // 2
+        $song->title = $request->title;
+        $song->status = $request->status;
+        $song->artist = $request->artist;
+        $song->save();
+    
+        // 3
+        return redirect()->route('music.index', [
+            'id' => $song->folder_id,
+        ]);
+    }
+    public function showDeleteForm(int $id, int $song_id)
+    {
+    $song = Song::find($song_id);
+
+    return view('music/delete', [
+        'song' => $song,
+    ]);
+    }
+    public function delete(int $id, int $song_id)
+    {
+        $song = Song::find($song_id);
+        $song -> delete();
+        return redirect()->route('music.index', [
+            'id' => $song->folder_id,
+        ]);
     }
 }

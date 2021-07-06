@@ -24,15 +24,15 @@ class CreateSong extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|max:100',
-            'due_date' => 'required|date|after_or_equal:today',
+            'title' => 'required|max:50',
+            'artist' => 'required|max:50',
         ];
     }
     public function attributes()
     {
         return [
-            'title' => 'タイトル',
-            'due_date' => '期限日',
+            'title' => '曲名',
+            'artist' => 'アーティスト名',
         ];
     }
     public function messages()

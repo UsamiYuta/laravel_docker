@@ -20,3 +20,7 @@ Route::get('/folders/create', 'FolderController@showCreateForm')->name('folders.
 Route::post('/folders/create', 'FolderController@create');
 Route::get('/folders/{id}/music/create', 'MusicController@showCreateForm')->name('music.create');
 Route::post('/folders/{id}/music/create', 'MusicController@create');
+Route::get('/folders/{id}/music/{song_id}/edit', 'MusicController@showEditForm')->name('music.edit');
+Route::post('/folders/{id}/music/{song_id}/edit', 'MusicController@edit');
+Route::get('/folders/{id}/music/{song_id}/delete', 'MusicController@showDeleteForm')->name('music.delete');
+Route::post('/folders/{id}/music/{song_id}/delete', 'MusicController@delete');
