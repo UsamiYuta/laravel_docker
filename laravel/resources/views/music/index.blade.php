@@ -36,9 +36,10 @@
           <table class="table">
             <thead>
             <tr>
-              <th>タイトル</th>
-              <th>アーティスト</th>
-              <th>評価</th>
+              <th>Name</th>
+              <th>Artist</th>
+              <th>Review</th>
+              <th>Date</th>
             </tr>
             </thead>
             <tbody>
@@ -49,6 +50,7 @@
                 <td>
                   <span class="label {{ $song->status_class }}">{{ $song->status_label }}</span>
                 </td>
+                <td>{{ $song->formatted_updated_at }}</td>
                 <td><a href="{{ route('music.edit', ['id' => $song->folder_id, 'song_id' => $song->id]) }}">編集</a></td>
                 <td><a href="{{ route('music.delete', ['id' => $song->folder_id, 'song_id' => $song->id]) }}">削除</a></td>
               </tr>

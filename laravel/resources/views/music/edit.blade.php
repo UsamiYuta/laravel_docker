@@ -24,17 +24,17 @@
             >
               @csrf
               <div class="form-group">
-                <label for="title">曲名</label>
+                <label for="title">Name</label>
                 <input type="text" class="form-control" name="title" id="title"
                        value="{{ old('title') ?? $song->title }}" />
               </div>
               <div class="form-group">
-                <label for="due_date">アーティスト名</label>
+                <label for="due_date">Artist</label>
                 <input type="text" class="form-control" name="artist" id="artist"
                        value="{{ old('artist') ?? $song->artist }}" />
               </div>
               <div class="form-group">
-                <label for="status">評価</label>
+                <label for="status">Review</label>
                 <select name="status" id="status" class="form-control">
                   @foreach(\App\Song::STATUS as $key => $val)
                     <option

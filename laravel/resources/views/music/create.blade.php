@@ -21,15 +21,15 @@
             <form action="{{ route('music.create', ['id' => $folder_id]) }}" method="POST">
               @csrf
               <div class="form-group">
-                <label for="title">曲名</label>
+                <label for="title">Name</label>
                 <input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}" />
               </div>
               <div class="form-group">
-                <label for="due_date">アーティスト名</label>
+                <label for="artist">Artist</label>
                 <input type="text" class="form-control" name="artist" id="artist" value="{{ old('artist') }}" />
               </div>
               <div class="form-group">
-                <label for="due_date">評価</label>
+                <label for="status">Review</label>
                   <select name="status" id="status" class="form-control">
                     @foreach(\App\Song::STATUS as $key => $val)
                       <option

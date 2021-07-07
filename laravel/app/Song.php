@@ -15,7 +15,7 @@ class Song extends Model
         2 => [ 'label' => '　2　', 'class' => 'label-primary' ],
         3 => [ 'label' => '　3　', 'class' => 'label-primary' ],
     ];
-
+    protected $date = 'updated_at';
     /**
      * 状態のラベル
      * @return string
@@ -50,6 +50,11 @@ class Song extends Model
     public function getFormattedDueDateAttribute()
     {
         return Carbon::createFromFormat('Y-m-d', $this->attributes['due_date'])
+            ->format('Y/m/d');
+    }
+    public function getFormattedUpdatedAtAttribute()
+    {
+        return Carbon::createFromFormat('Y-m-d H:i:s', $this->attributes['updated_at'])
             ->format('Y/m/d');
     }
 }

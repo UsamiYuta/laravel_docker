@@ -11,10 +11,12 @@
           <nav class="panel panel-default">
             <div class="panel-heading">曲を削除しますか？</div>
             <table class="table">
+            <thead>
             <tr>
-              <th class="fixed01">タイトル</th>
-              <th class="fixed01">アーティスト名</th>
-              <th class="fixed01">評価</th>
+              <th>Name</th>
+              <th>Artist</th>
+              <th>Review</th>
+            </thead>
             <tbody>
             <tr>
                 <td>{{ $song->title }}</td>
